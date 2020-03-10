@@ -47,9 +47,9 @@
 						</td>
 						<td>
 							<?php
-								$expiry = $db->search('expiry', array('permit_id' => $permit->id), 'fetch')[0];
+								$expiry = $db->search('expiry', array('permit_id' => $permit->id), 'fetch');
 								if($expiry) {
-									$date = new DateTime($expiry['end_date']);
+									$date = new DateTime($expiry[0]['end_date']);
 									echo $date->format('F d, Y');
 								}
 								else {
@@ -78,120 +78,120 @@
 									      		<div class="modal-body">
 										      		<div class="row">
 										      			<div class="col-md-2 border-bottom">
-										      				<h6>Type: <?=htmlentities($permit->type)?></h6>
+										      				<h6>Type: <b><?=htmlentities($permit->type)?></b></h6>
 										      			</div>
 										      			<div class="col-md-4 border-bottom">
-										      				<h6>Business Name: <?=htmlentities(Business::cleanFindByID($permit->business_id)->name)?></h6>
+										      				<h6>Business Name: <b><?=htmlentities(Business::cleanFindByID($permit->business_id)->name)?></b></h6>
 										      			</div>
 										      			<div class="col-md-3 border-bottom">
-										      				<h6>Date: 	<?php
+										      				<h6>Date: 	<b><?php
 																		$date = new DateTime($permit->date);
 																		echo $date->format('F d, Y');
-																	?></h6>
+																	?></b></h6>
 										      			</div>
 										      			<div class="col-md-3 border-bottom">
-										      				<h6>Status:	<?php
+										      				<h6>Status:	<b><?php
 										      							$statuses = array('Pending', 'Approved', 'Expired');
 										      							echo $statuses[$permit->approved];
-										      						?></h6>
+										      						?></b></h6>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Business Account Number: <?=htmlentities($permit->business_account_number)?>
+										      				Business Account Number: <b><?=htmlentities($permit->business_account_number)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Name of Taxpayers: <?=htmlentities($permit->name_of_taxpayers)?>
+										      				Name of Taxpayers: <b><?=htmlentities($permit->name_of_taxpayers)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom">
-										      				Telephone No.: <?=htmlentities($permit->telephone_no)?>
+										      				Telephone No.: <b><?=htmlentities($permit->telephone_no)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Capital: <?=htmlentities($permit->capital)?> PHP
+										      				Capital: <b><?=htmlentities($permit->capital)?></b> PHP
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Address: <?=htmlentities($permit->address)?>
+										      				Address: <b><?=htmlentities($permit->address)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom">
-										      				Brgy No.: <?=htmlentities($permit->barangay_no)?>
+										      				Brgy No.: <b><?=htmlentities($permit->barangay_no)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Business Trade Name: <?=htmlentities($permit->business_trade_name)?>
+										      				Business Trade Name: <b><?=htmlentities($permit->business_trade_name)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Business Tel No.: <?=htmlentities($permit->business_telephone_no)?>
+										      				Business Tel No.: <b><?=htmlentities($permit->business_telephone_no)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom">
-										      				Fax No.: <?=htmlentities($permit->fax_no)?>
+										      				Fax No.: <b><?=htmlentities($permit->fax_no)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Commercial Address: <?=htmlentities($permit->commercial_address)?>
+										      				Commercial Address: <b><?=htmlentities($permit->commercial_address)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Street: <?=htmlentities($permit->street)?>
+										      				Street: <b><?=htmlentities($permit->street)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom">
-										      				Barangay: <?=htmlentities($permit->barangay)?>
+										      				Barangay: <b><?=htmlentities($permit->barangay)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Main Line of Business: <?=htmlentities($permit->main_line_of_business)?>
+										      				Main Line of Business: <b><?=htmlentities($permit->main_line_of_business)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Main Products and Services: <?=htmlentities($permit->main_products_and_services)?>
+										      				Main Products and Services: <b><?=htmlentities($permit->main_products_and_services)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom">
-										      				Barangay Clearance: <?=$permit->barangay_clearance == 1 ? 'Yes' : 'No'?>
+										      				Barangay Clearance: <b><?=$permit->barangay_clearance == 1 ? 'Yes' : 'No'?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				No. of Employees: <?=htmlentities($permit->no_of_employees)?>
+										      				No. of Employees: <b><?=htmlentities($permit->no_of_employees)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Public Liability Insurance: <?=$permit->public_liability_insurance == 1 ? 'Yes' : 'No'?>
+										      				Public Liability Insurance: <b><?=$permit->public_liability_insurance == 1 ? 'Yes' : 'No'?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom">
-										      				Issuing Company: <?=htmlentities($permit->issuing_company)?>
+										      				Issuing Company: <b><?=htmlentities($permit->issuing_company)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Date: <?=htmlentities($permit->issuing_company_date)?>
+										      				Date: <b><?=htmlentities($permit->issuing_company_date)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				DTI Reg No.: <?=htmlentities($permit->dti_reg_no)?>
+										      				DTI Reg No.: <b><?=htmlentities($permit->dti_reg_no)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom">
-										      				SEC Reg No.: <?=htmlentities($permit->sec_reg_no)?>
+										      				SEC Reg No.: <b><?=htmlentities($permit->sec_reg_no)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Proof of Ownership: <?=htmlentities($permit->proof_of_ownership)?>
+										      				Proof of Ownership: <b><?=htmlentities($permit->proof_of_ownership)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Owned: <?=$permit->owned == 1 ? 'Yes' : 'No'?>
+										      				Owned: <b><?=$permit->owned == 1 ? 'Yes' : 'No'?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom">
-										      				Leased: <?=$permit->leased == 1 ? 'Yes' : 'No'?>
+										      				Leased: <b><?=$permit->leased == 1 ? 'Yes' : 'No'?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Ownership Type: <?=htmlentities($permit->ownership_type)?>
+										      				Ownership Type: <b><?=htmlentities($permit->ownership_type)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Registered Name: <?=htmlentities($permit->registered_name)?>
+										      				Registered Name: <b><?=htmlentities($permit->registered_name)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom">
-										      				Lessor's Name: <?=htmlentities($permit->lessors_name)?>
+										      				Lessor's Name: <b><?=htmlentities($permit->lessors_name)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Real Property Tax Receipt No.: <?=htmlentities($permit->real_property_tax_receipt_no)?>
+										      				Real Property Tax Receipt No.: <b><?=htmlentities($permit->real_property_tax_receipt_no)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom border-right">
-										      				Rent per Month: <?=htmlentities($permit->rent_per_month)?>
+										      				Rent per Month: <b><?=htmlentities($permit->rent_per_month)?></b>
 										      			</div>
 										      			<div class="col-md-4 border-bottom">
-										      				Period Date: <?php $date = new DateTime($permit->period_date); echo $date->format('F d, Y'); ?>
+										      				Period Date: <b><?php $date = new DateTime($permit->period_date); echo $date->format('F d, Y'); ?></b>
 										      			</div>
 										      			<div class="col-md-4">
-										      				Area in SQ Meter: <?=htmlentities($permit->area_in_sq_meter)?>
+										      				Area in SQ Meter: <b><?=htmlentities($permit->area_in_sq_meter)?></b>
 										      			</div>
 										      			<div class="col-md-12 border-top">
 										      				<h4>
 										      					<span>
-										      						Name of Applicant: <?=htmlentities($permit->name_of_applicant)?>
+										      						Name of Applicant: <b><?=htmlentities($permit->name_of_applicant)?></b>
 										      					</span>
 										      				</h4>
 										      			</div>

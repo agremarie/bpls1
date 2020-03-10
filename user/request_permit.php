@@ -312,6 +312,12 @@
 							$(document).on('click', '#owned', e => {
 								const ov = $('#owned-val');
 								ov.val(1 - ov.val());
+								if(ov.val() == 1) {
+									$('#lessors-name').prop('disabled', true);
+								}
+								else {
+									$('#lessors-name').prop('disabled', false);
+								}
 							});
 						});
 					</script>
@@ -380,7 +386,7 @@
 								Lessor's Name:
 							</span>
 						</div>
-						<input type="text" name="lessors_name" class="form-control" value="" required="">
+						<input type="text" id="lessors-name" name="lessors_name" class="form-control" value="" required="">
 					</div>
 				</div>
 				<div class="col-md-6">
