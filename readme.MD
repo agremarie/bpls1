@@ -14,7 +14,7 @@ You can either clone or download the repository as a ZIP file.
 ##### Cloning:
 This requires that you have Git Bash installed on your computer. You clone by typing the following code on Git Bash:
 ```
-$ git clone https://github.com/mekoidigret/bpls.git
+$ git clone https://github.com/agremarie/bpls1.git
 ```
 
 #### Configuration:
@@ -37,7 +37,7 @@ The title, author and database configuration can be found in the `config/config.
 			'full' => 'Business Permit and Licensing System'
 		),
 		'authors' => array(
-			'John Michael Manlupig'
+			'Agre Marie Baldovieso'
 		),
 		'environment' => 'Development'
 	);
